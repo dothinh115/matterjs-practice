@@ -1,6 +1,15 @@
 <template>
-  <div class="container mx-auto h-[753px]">
-    <div id="canvas" class="h-full w-full"></div>
+  <div class="container mx-auto md:h-[753px] h-screen md:mt-[100px] relative">
+    <div
+      class="absolute w-full h-fit flex justify-center items-center text-center top-[100px] md:text-[30px] text-[20px] text-slate-500 font-bold"
+    >
+      Thịnh Đỗ with love <br />
+      ❤️❤️❤️
+    </div>
+    <div
+      id="canvas"
+      class="h-full w-full md:border-gray-200 md:border md:rounded-[12px]"
+    ></div>
   </div>
 </template>
 <script setup lang="ts">
@@ -76,7 +85,9 @@ const createViewPort = (Bodies: any): any[] => {
 
 const createItems = (Bodies: any): any[] => {
   let arr: any[] = [];
-  for (let i = 0; i < 40; i++) {
+  let number: number = 40;
+  if (window.innerWidth < 768) number = 20;
+  for (let i = 0; i < number; i++) {
     const x = Math.random() * width;
     arr = [
       ...arr,
