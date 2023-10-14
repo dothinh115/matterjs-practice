@@ -86,12 +86,15 @@ const createViewPort = (Bodies: any): any[] => {
 const createItems = (Bodies: any): any[] => {
   let arr: any[] = [];
   let number: number = 40;
-  if (window.innerWidth < 768) number = 20;
+  let size: number = 45;
+  if (window.innerWidth < 768) {
+    size = 30;
+  }
   for (let i = 0; i < number; i++) {
     const x = Math.random() * width;
     arr = [
       ...arr,
-      Bodies.circle(x, 0, 45, {
+      Bodies.circle(x, 0, size, {
         density: 0.0005,
         frictionAir: 0.06,
       }),
